@@ -1,6 +1,6 @@
 {
   "name": "unione-express",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "UniOne Web API for Express: API client, webhooks, Nodemailer transport",
   "type": "module",
   "main": "./src/index.js",
@@ -21,7 +21,7 @@
     "node": ">=18"
   },
   "dependencies": {
-    "unione": "^2.2.3"
+    "unione": "^2.2.4"
   },
   "peerDependencies": {
     "express": ">=4.18"
