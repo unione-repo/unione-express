@@ -134,7 +134,7 @@ function post(url, body) {
 /** The platform of the requests: this package, then the SDK. */
 function assertPlatform(call) {
   assert.ok(call.platform.startsWith(`${PLATFORM},node-sdk.`), call.platform);
-  assert.strictEqual(PLATFORM, "express.1.3.0");
+  assert.strictEqual(PLATFORM, "express.1.3.1");
 }
 
 /** The test mail through `transporter`: one email/send with the fields of the mail. */
