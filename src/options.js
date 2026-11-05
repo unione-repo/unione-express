@@ -1,7 +1,7 @@
 import { UniOneClient } from "unione";
 
 /** The package and its version in the "platform" query parameter of the requests, before the SDK one. */
-export const PLATFORM = "express.1.3.1";
+export const PLATFORM = "express.1.3.2";
 
 /**
  * @typedef {object} UniOneOptions

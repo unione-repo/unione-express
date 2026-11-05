@@ -18,7 +18,7 @@ export class UniOneTransport {
    */
   constructor(options = {}) {
     this.name = "UniOne";
-    this.version = "1.3.1";
+    this.version = "1.3.2";
     this.client = options.client ?? createClient(options);
   }
 

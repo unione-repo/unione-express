@@ -19,17 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: The tag is the version of the package
-        run: test "$GITHUB_REF_NAME" = "v1.3.1" || { echo "tag $GITHUB_REF_NAME, package v1.3.1"; exit 1; }
-      - name: Wait for the SDK unione 2.3.0 in npm
-        timeout-minutes: 95
-        run: |
-          for i in $(seq 1 180); do
-            if curl -fsSL -A "release-workflow (github.com/$GITHUB_REPOSITORY)" -o /tmp/sdk "https://registry.npmjs.org/unione/2.3.0"; then
-              echo "unione 2.3.0 is in npm"; exit 0
-            fi
-            echo "unione 2.3.0 is not in npm yet ($i/180)"; sleep 30
-          done
-          echo "::error::unione 2.3.0 did not appear in npm in 90 min: publish the SDK first"; exit 1
+        run: test "$GITHUB_REF_NAME" = "v1.3.2" || { echo "tag $GITHUB_REF_NAME, package v1.3.2"; exit 1; }
       - uses: actions/setup-node@v4
         with:
           node-version: "24"
