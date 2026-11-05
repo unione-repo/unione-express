@@ -24,6 +24,10 @@ export function clientMiddleware(options = {}) {
  */
 export function webhookRouter(options = {}) {
   const settings = resolveOptions(options);
+  if (!settings.webhookKey) {
+    console.warn("UniOne: the webhook key is not set (webhookKey / apiKey options, UNIONE_WEBHOOK_KEY / UNIONE_API_KEY):"
+      + " every webhook will be answered 401.");
+  }
   const path = options.path ?? settings.webhookPath;
   const router = express.Router();
   router.get(path, (req, res) => {

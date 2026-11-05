@@ -40,7 +40,7 @@ UNIONE_HOST=us1.unione.io
 | `webhookKey` | `UNIONE_WEBHOOK_KEY` |  | API key the webhooks are signed with (the key of the user/project of the webhook), if it differs from the API key. |
 | `webhookPath` | `UNIONE_WEBHOOK_PATH` | `/unione/webhook` | Path of the webhook endpoint. |
 
-The same options can be passed to `createClient()`, `clientMiddleware()`, `webhookRouter()` and `new UniOneTransport()`; `timeout` is in seconds.
+The same options can be passed to `createClient()`, `clientMiddleware()`, `webhookRouter()` and `new UniOneTransport()`; `timeout` is in seconds. Without a key (`webhookKey` or `apiKey`, or their environment variables) the webhook answers 401 to every request and a warning is logged at startup.
 
 ## Sending mail
 
@@ -127,6 +127,10 @@ app.post("/send", async (req, res) => {
   res.sendStatus(202);
 });
 ```
+
+### Errors
+
+A failed send of the Nodemailer transport rejects with the SDK `ApiError`, the API client too: `kind` tells what failed (api, network, timeout, invalid_response, invalid_request), `retryable` whether a repeat may succeed (network, timeout, HTTP 429 and 5xx), `hint` how to fix an API error and `apiMessage` the message of the API.
 
 ## No domain yet: the test sandbox domain
 
